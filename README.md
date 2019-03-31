@@ -1,2 +1,2 @@
 # rolispam
-mass spammer :D
+usage : bash rolispam.sh
