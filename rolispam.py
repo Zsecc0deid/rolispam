@@ -6,7 +6,7 @@ except Exception as x:
 	   print ("modul err0r %s"% (x))
 class roli:
 	  urlz = "https://roli.telkomsel.com/auth/forgot_password"
-o = input("Masukkan Number :")
+o = int(input("Masukkan Number :"))
 fuck = {'msisdn':o}
 ajg = post(roli.urlz,fuck)
 print (ajg.json()["message"])
