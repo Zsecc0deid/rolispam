@@ -34,18 +34,18 @@ ${WHITE} ╚███╔███╔╝██║██████╔╝██�
 menu
 function rol()
 {
-	          H="Upgrade-Insecure-Requests: 1"
+	      H="Upgrade-Insecure-Requests: 1"
               D="msisdn=$x"
               R="https://roli.telkomsel.com/auth/forgot_password"
 }
 function rol1(){
-	                     read -p "list here :" asu
-	                     ceklist
+              read -p "list here :" asu
+	      ceklist
               for x in $(cat $asu); do
               rol
               done
-	                   c=$(curl -s $R --data $D \
-	         -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+	     c=$(curl -s $R --data $D \
+	     -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
              -H "Accept-Language: en-US,en;q=0.5" \
              -H "Referer: https://roli.telkomsel.com/auth/forgot_password" \
              -H $H --compressed | grep -Po '(?<="message":)[^,]*')
