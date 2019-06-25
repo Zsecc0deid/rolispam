@@ -43,7 +43,7 @@ function Requ_Tsel(){
               gasz="curl --silent ${r}"
               greb=$($gasz | grep 'id="signForm"' | gawk -F = '{ print $2 }' | gawk '{ print $1 }' | tr -d '""')
               vos=$(echo "$greb")
-              crl=$(curl --silent $vos -d "nama=zsecc0de" -d "nohp_reg=$x" -d "gender=m" -d "birth_date=12/2/1999" -d "password=zsec0de12222" -d "repassword=zsec0de12222" |  grep -Po '(?<="message":)[^,]*')
+              crl=$(curl --silent $vos -d "nama=zsecc0de" -d "nohp_reg=$x" -d "gender=m" -d "birth_date=12/2/1999" -d "password=zsec0de12222" -d "repassword=zsec0de12222" | grep -Po '(?<="message":)[^,]*')
               if [[ $crl =~ "sorry this msisdn  :$x is already registered" ]]; then
                   printf "[~] mantav berhasil spam ke $x \n"
               else
