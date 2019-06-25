@@ -57,8 +57,8 @@ function Roli_Tsel(){
               ((i=i%hitung)); ((i++==0)) && wait
               heder "${x}" "${vos}"
               done
-	          c=$(curl -s $R --data $D \
-	           -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+	  c=$(curl -s $R --data $D \
+	     -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
              -H "Accept-Language: en-US,en;q=0.5" \
              -H "Referer: https://roli.telkomsel.com/auth/forgot_password" \
              -H $H --compressed | grep -Po '(?<="message":)[^,]*')
