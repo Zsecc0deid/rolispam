@@ -7,8 +7,8 @@ except Exception as x:
 class roli:
 	  urlz = "https://roli.telkomsel.com/auth/forgot_password"
 o = int(input("Masukkan Number :"))
-fuck = {'msisdn':o}
-ajg = post(roli.urlz,fuck)
+fu = {'msisdn':o}
+ajg = post(roli.urlz,fu)
 print (ajg.json()["message"])
 if __name__ == '__main__':
 	print ("""
