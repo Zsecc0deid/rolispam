@@ -1,7 +1,6 @@
 #!/bin/bash
 # FB: fb.me/widhisec | IG : @widhisec | YT : zsecc0de-crew ID
 # ga usah di recode capek w bikin
-hitung=10
 if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi 
 function heder(){
                  H="Upgrade-Insecure-Requests: 1"
@@ -54,7 +53,6 @@ function Roli_Tsel(){
               read -p "list here :" vos
               ceklist
               for x in $(cat $vos); do
-              ((i=i%hitung)); ((i++==0)) && wait
               heder "${x}" "${vos}"
               done
 	  c=$(curl -s $R --data $D \
