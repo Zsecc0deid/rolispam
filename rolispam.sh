@@ -1,6 +1,5 @@
 #!/bin/bash
 # FB: fb.me/widhisec | IG : @widhisec | YT : zsecc0de-crew ID
-# ga usah di recode capek w bikin
 hitung=15
 if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi 
 function ceklist(){
