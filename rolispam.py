@@ -1,4 +1,4 @@
-# FB: fb.me/widhisec | IG : @widhisec | YT : zsecc0de-crew ID
+# YT : zsecc0de-crew ID
 # ga usah di recode capek w bikin
 try:
 	from requests import post
