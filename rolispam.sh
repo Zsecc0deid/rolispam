@@ -1,5 +1,5 @@
 #!/bin/bash
-# FB: fb.me/widhisec | IG : @widhisec | YT : zsecc0de-crew ID
+# YT : zsecc0de-crew ID
 hitung=15
 if [[ -z $(command -v "curl") ]];then echo "belom dinstall!";fi 
 function ceklist(){
@@ -63,6 +63,6 @@ read -p "list here :" vos
 ceklist
 for x in $(cat $vos); do
    ((i=i%hitung)); ((i++==0)) && wait
-    Roli_Tsel "${x}" "${vos}"
+    Roli_Tsel "${x}" "${vos}" &
 done
 wait
